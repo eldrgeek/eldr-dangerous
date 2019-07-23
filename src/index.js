@@ -5,8 +5,8 @@ import "./styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Dangerous Devices</h1>
+    <div className="App" s>
+      <h1>More Dangerous Devices</h1>
       <h2>Something dangerous is about to happen</h2>
     </div>
   );
