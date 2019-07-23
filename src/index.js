@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>Dangerous Devices</h1>
-      <h2>Something is going to happen</h2>
+      <h2>Something dangerous is about to happen</h2>
     </div>
   );
 }
