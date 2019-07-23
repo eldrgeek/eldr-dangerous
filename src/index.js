@@ -8,6 +8,7 @@ function App() {
     <div className="App" s>
       <h1>More Dangerous Devices</h1>
       <h2>Something really dangerous is about to happen</h2>
+      And there's a pixel here to prove it.
     </div>
   );
 }
