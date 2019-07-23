@@ -5,6 +5,7 @@ function App() {
   return (
     <Router>
       <div>
+        <h1>Danger is on its way!</h1>
         <Header />
 
         <Route exact path="/" component={Home} />
@@ -21,7 +22,7 @@ function Home() {
 
 function emitEvent() {
   window.fbq("track", "CompleteRegistration", {
-    value: 100,
+    value: 200,
     currency: "USD"
   });
 }
