@@ -20,7 +20,10 @@ function Home() {
 }
 
 function emitEvent() {
-  window.fbq("track", "CompleteRegistration");
+  window.fbq("track", "CompleteRegistration", {
+    value: 100,
+    currency: "USD"
+  });
 }
 function Register() {
   return (
