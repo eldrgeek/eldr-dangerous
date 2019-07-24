@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 // import Link from '@material-ui/core/Link';
-
+import Stepper from "./Stepper";
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
@@ -69,7 +69,7 @@ const HeroContent = () => {
             color="textSecondary"
             paragraph
           >
-            What are dangerous dewvices?.
+            <Stepper />.
           </Typography>
           <div className={classes.heroButtons}>
             <Grid container spacing={2} justify="center">
