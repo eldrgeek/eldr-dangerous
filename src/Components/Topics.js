@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Link, Route } from "react-router-dom";
 
 function Topic({ match }) {
   return <h3>Requested Param: {match.params.id}</h3>;
@@ -27,4 +28,4 @@ function Topics({ match }) {
     </div>
   );
 }
-export default Topic;
+export default Topics;
