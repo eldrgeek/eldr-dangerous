@@ -43,8 +43,11 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(6)
   }
 }));
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+const cards = [
+  "dawn-armfield-28v9cq7ytNU-unsplash (1).jpg",
+  "denys-nevozhai-7nrsVjvALnA-unsplash.jpg",
+  "raquel-raclette-MYjFOiVWWT8-unsplash.jpg"
+];
 const HeroContent = () => {
   const classes = useStyles();
   return (
@@ -92,7 +95,7 @@ const HeroContent = () => {
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image="https://source.unsplash.com/random"
+                  image={`/img/${card}`}
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
