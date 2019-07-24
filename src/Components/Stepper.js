@@ -10,7 +10,12 @@ import Typography from "@material-ui/core/Typography";
 import Steps from "../Data/Hacksteps";
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "90%"
+    width: "90%",
+    // fontSize: "10em",
+    textAlign: "left"
+  },
+  label: {
+    fontSize: "1em"
   },
   button: {
     marginTop: theme.spacing(1),
@@ -46,9 +51,17 @@ export default function VerticalLinearStepper() {
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.title}>
-            <StepLabel>{step.title}</StepLabel>
+            <StepLabel
+              classes={{
+                root: classes.root, // class name, e.g. `classes-nesting-root-x`
+                active: classes.label // class name, e.g. `classes-nesting-label-x`
+              }}
+              alignItems="left"
+            >
+              {step.title}
+            </StepLabel>
             <StepContent>
-              <Typography>{step.text}</Typography>
+              <Typography align="left">{step.text}</Typography>
               <div className={classes.actionsContainer}>
                 <div>
                   <Button

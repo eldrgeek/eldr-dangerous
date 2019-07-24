@@ -57,12 +57,12 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     padding: "0 8px",
-    ...theme.mixins.toolbar,
+    // ...theme.mixins.toolbar,
     justifyContent: "flex-end"
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
