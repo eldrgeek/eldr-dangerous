@@ -1,6 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./Home";
+import Register from "./Register";
+import Topics from "./Topics";
+import Header from "./Header";
 function App() {
   return (
     <Router>
@@ -13,77 +16,6 @@ function App() {
         <Route path="/topics" component={Topics} />
       </div>
     </Router>
-  );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function emitEvent() {
-  window.fbq("track", "CompleteRegistration", {
-    value: 200,
-    currency: "USD"
-  });
-}
-function Register() {
-  return (
-    <div>
-      <h2>Register</h2>
-      <button id="submitButton" onClick={emitEvent}>
-        Complete Registration
-      </button>
-      {/* <script type="text/javascript">
-document.getElementById('submitButton').addEventListener('click', function() {
-insert_event_code_here;
-...
-}, false);
-</script> */}
-    </div>
-  );
-}
-
-function Topic({ match }) {
-  return <h3>Requested Param: {match.params.id}</h3>;
-}
-
-function Topics({ match }) {
-  return (
-    <div>
-      <h2>Topics</h2>
-
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-        </li>
-      </ul>
-
-      <Route path={`${match.path}/:id`} component={Topic} />
-      <Route
-        exact
-        path={match.path}
-        render={() => <h3>Please select a topic.</h3>}
-      />
-    </div>
-  );
-}
-
-function Header() {
-  return (
-    <ul>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/register">Register</Link>
-      </li>
-      <li>
-        <Link to="/topics">Topics</Link>
-      </li>
-    </ul>
   );
 }
 
