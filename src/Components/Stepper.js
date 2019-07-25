@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Steps from "../Data/Hacksteps";
+const ReactMarkdown = require("react-markdown");
 const useStyles = makeStyles(theme => ({
   root: {
     width: "90%",
@@ -62,7 +63,8 @@ export default function VerticalLinearStepper() {
             </StepLabel>
             <StepContent>
               {step.text.split("\n").map(line => (
-                <Typography align="left">{line}</Typography>
+                <ReactMarkdown source={line} escapeHtml={true} />
+                // <Typography align="left">{line}</Typography>
               ))}
               <div className={classes.actionsContainer}>
                 <div>
