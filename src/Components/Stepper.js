@@ -61,7 +61,9 @@ export default function VerticalLinearStepper() {
               {step.title}
             </StepLabel>
             <StepContent>
-              <Typography align="left">{step.text}</Typography>
+              {step.text.split("\n").map(line => (
+                <Typography align="left">{line}</Typography>
+              ))}
               <div className={classes.actionsContainer}>
                 <div>
                   <Button

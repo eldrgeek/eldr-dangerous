@@ -1,7 +1,9 @@
 const Hacksteps = [
   {
-    title: "Anything [on the internet] can be hacked...",
-    text: "blah blah",
+    title: "Anything on the internet can be hacked",
+    text: `Anything that isn't completely trivial can be hacked.
+    You can describe stuff in multiple lines
+    But you need backticks, not quotes`,
     img: null,
     linkText: null,
     url: null
