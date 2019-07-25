@@ -16,11 +16,11 @@ Things you might not expect...or even believe:
 # Hackers can turn them into weapons...
 blah blah
 
-#  "There are already millions of these potential weapons in the US",
+#  There are already millions of these potential weapons in the US
 FACT: There are about _50 million_ Internet-connected cars on U.S. roads today.
   That number is growing rapidly, as most major automakers will only sell net-connected cars by the end of 2019.
 
-# Millions are being added with no restriction",
+# Millions are being added with no restriction  
 There are no laws or regulations stopping most dangerous devices from being connected to the Internet.
   Manufacturers are creating them with reckless abandon,
   marketing them as "smart devices",

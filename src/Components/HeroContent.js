@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(0, 0, 6)
+    padding: theme.spacing(0, 0, 0)
   },
   heroButtons: {
     marginTop: theme.spacing(4)
@@ -53,7 +53,7 @@ const HeroContent = () => {
   return (
     <React.Fragment>
       <div className={classes.heroContent}>
-        <Container maxWidth="sm">
+        <Container maxWidth="lg">
           <Typography
             component="h1"
             variant="h2"

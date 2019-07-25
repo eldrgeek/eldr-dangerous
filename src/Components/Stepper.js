@@ -52,7 +52,6 @@ export default function VerticalLinearStepper() {
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => {
           const lineLength = step.indexOf("\n");
-          console.log(index, step, lineLength);
           const title = step.substr(0, lineLength);
           const rest = step.substr(lineLength + 1);
           return (
