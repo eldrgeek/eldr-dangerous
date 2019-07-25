@@ -50,44 +50,51 @@ export default function VerticalLinearStepper() {
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((step, index) => (
-          <Step key={step.title}>
-            <StepLabel
-              classes={{
-                root: classes.root, // class name, e.g. `classes-nesting-root-x`
-                active: classes.label // class name, e.g. `classes-nesting-label-x`
-              }}
-              alignItems="left"
-            >
-              {step.title}
-            </StepLabel>
-            <StepContent>
-              {step.text.split("\n").map(line => (
-                <ReactMarkdown source={line} escapeHtml={true} />
-                // <Typography align="left">{line}</Typography>
-              ))}
-              <div className={classes.actionsContainer}>
-                <div>
-                  <Button
-                    disabled={activeStep === 0}
-                    onClick={handleBack}
-                    className={classes.button}
-                  >
-                    Back
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                  </Button>
+        {steps.map((step, index) => {
+          const lineLength = step.indexOf("\n");
+          console.log(index, step, lineLength);
+          const title = step.substr(0, lineLength);
+          const rest = step.substr(lineLength + 1);
+          return (
+            <Step key={step.title}>
+              <StepLabel
+                classes={{
+                  root: classes.root, // class name, e.g. `classes-nesting-root-x`
+                  active: classes.label // class name, e.g. `classes-nesting-label-x`
+                }}
+                alignItems="left"
+              >
+                {title}
+              </StepLabel>
+              <StepContent>
+                <Typography align="left">
+                  <ReactMarkdown source={rest} escapeHtml={true} />
+                </Typography>
+                {/* <Typography align="left">{line}</Typography> */}
+
+                <div className={classes.actionsContainer}>
+                  <div>
+                    <Button
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      className={classes.button}
+                    >
+                      Back
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </StepContent>
-          </Step>
-        ))}
+              </StepContent>
+            </Step>
+          );
+        })}
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} className={classes.resetContainer}>
