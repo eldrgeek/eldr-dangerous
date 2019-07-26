@@ -4,7 +4,7 @@ From [household appliances](https://www.cnet.com/news/fridge-caught-sending-spam
 ...to the [national power grid](https://www.bbc.com/news/technology-48675203)...
 If it's online, hackers can get in.
 
-![image](https://www.maxpixel.net/static/photo/1x/Anonymous-Mask-Hacker-Cyber-Network-Computer-2821433.jpg)
+<img src="http://www.maxpixel.net/static/photo/1x/Anonymous-Mask-Hacker-Cyber-Network-Computer-2821433.jpg" width="200" height="200" />
 
 # Millions of dangerous devices are being put on the internet
 Things you might not expect...or even believe:

@@ -12,7 +12,7 @@ const ReactMarkdown = require("react-markdown");
 const useStyles = makeStyles(theme => ({
   root: {
     width: "90%",
-    // fontSize: "10em",
+    // fontSize: "10em",'
     textAlign: "left"
   },
   label: {
@@ -67,7 +67,7 @@ export default function VerticalLinearStepper() {
               </StepLabel>
               <StepContent>
                 <Typography align="left">
-                  <ReactMarkdown source={rest} escapeHtml={true} />
+                  <ReactMarkdown source={rest} escapeHtml={false} />
                 </Typography>
                 {/* <Typography align="left">{line}</Typography> */}
 
