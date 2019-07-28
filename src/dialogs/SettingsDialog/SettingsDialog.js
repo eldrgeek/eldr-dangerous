@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogActions from "@material-ui/core/DialogActions";
 
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Button from '@material-ui/core/Button';
-import Hidden from '@material-ui/core/Hidden';
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Button from "@material-ui/core/Button";
+import Hidden from "@material-ui/core/Hidden";
 
-import SwipeableViews from 'react-swipeable-views';
+import SwipeableViews from "react-swipeable-views";
 
-import AccountTab from '../../tabs/settings/AccountTab/AccountTab';
-import AppearanceTab from '../../tabs/settings/AppearanceTab/AppearanceTab';
+// import AccountTab from '../../tabs/settings/AccountTab/AccountTab';
+// import AppearanceTab from '../../tabs/settings/AppearanceTab/AppearanceTab';
 
-const styles = (theme) => ({
+const styles = theme => ({
   tabs: {
     marginBottom: theme.spacing(1)
   }
@@ -34,14 +34,14 @@ class SettingsDialog extends Component {
     };
   }
 
-  handleKeyPress = (event) => {
+  handleKeyPress = event => {
     const key = event.key;
 
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
       return;
     }
 
-    if (key === 'Enter') {
+    if (key === "Enter") {
       this.props.onClose();
     }
   };
@@ -52,7 +52,7 @@ class SettingsDialog extends Component {
     });
   };
 
-  changeIndex = (index) => {
+  changeIndex = index => {
     this.setState({
       selectedTab: index
     });
@@ -61,7 +61,11 @@ class SettingsDialog extends Component {
   handleResetClick = () => {
     const { primaryColor, secondaryColor, type, defaultTheme } = this.props;
 
-    if (primaryColor !== defaultTheme.primaryColor || secondaryColor !== defaultTheme.secondaryColor || type !== defaultTheme.type) {
+    if (
+      primaryColor !== defaultTheme.primaryColor ||
+      secondaryColor !== defaultTheme.secondaryColor ||
+      type !== defaultTheme.type
+    ) {
       setTimeout(this.props.onResetClick, 137.5);
     }
   };
@@ -103,25 +107,36 @@ class SettingsDialog extends Component {
     let hasDeviatedFromDefaultSettings = false;
 
     if (defaultTheme) {
-      hasDeviatedFromDefaultSettings = (
+      hasDeviatedFromDefaultSettings =
         primaryColor !== defaultTheme.primaryColor.name ||
         secondaryColor !== defaultTheme.secondaryColor.name ||
-        type !== defaultTheme.type
-      );
+        type !== defaultTheme.type;
     }
 
     return (
-      <Dialog fullScreen={fullScreen} open={open} onClose={onClose} onKeyPress={this.handleKeyPress}>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={onClose}
+        onKeyPress={this.handleKeyPress}
+      >
         <DialogTitle>Settings</DialogTitle>
 
-        <Tabs className={classes.tabs} indicatorColor="primary" textColor="primary" onChange={this.changeTab} value={selectedTab} variant="fullWidth">
+        <Tabs
+          className={classes.tabs}
+          indicatorColor="primary"
+          textColor="primary"
+          onChange={this.changeTab}
+          value={selectedTab}
+          variant="fullWidth"
+        >
           <Tab label="Account" />
           <Tab label="Appearance" />
         </Tabs>
 
         <DialogContent>
           <Hidden only="xs">
-            {selectedTab === 0 &&
+            {selectedTab === 0 && (
               <AccountTab
                 user={user}
                 isPerformingAuthAction={isPerformingAuthAction}
@@ -133,9 +148,9 @@ class SettingsDialog extends Component {
                 onAddEmailAddressClick={onAddEmailAddressClick}
                 onVerifyEmailAddressClick={onVerifyEmailAddressClick}
               />
-            }
+            )}
 
-            {selectedTab === 1 &&
+            {selectedTab === 1 && (
               <AppearanceTab
                 colors={colors}
                 primaryColor={primaryColor}
@@ -145,11 +160,14 @@ class SettingsDialog extends Component {
                 onSecondaryColorChange={onSecondaryColorChange}
                 onTypeChange={onTypeChange}
               />
-            }
+            )}
           </Hidden>
 
-          <Hidden only={['sm', 'md', 'lg', 'xl']}>
-            <SwipeableViews index={selectedTab} onChangeIndex={this.changeIndex}>
+          <Hidden only={["sm", "md", "lg", "xl"]}>
+            <SwipeableViews
+              index={selectedTab}
+              onChangeIndex={this.changeIndex}
+            >
               <AccountTab
                 user={user}
                 isPerformingAuthAction={isPerformingAuthAction}
@@ -175,32 +193,52 @@ class SettingsDialog extends Component {
           </Hidden>
         </DialogContent>
 
-        {(selectedTab === 1 && hasDeviatedFromDefaultSettings) &&
+        {selectedTab === 1 && hasDeviatedFromDefaultSettings && (
           <React.Fragment>
             <Hidden only="xs">
               <DialogActions>
-                <Button color="primary" variant="contained" onClick={this.handleResetClick}>Reset</Button>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  onClick={this.handleResetClick}
+                >
+                  Reset
+                </Button>
               </DialogActions>
             </Hidden>
 
-            <Hidden only={['sm', 'md', 'lg', 'xl']}>
+            <Hidden only={["sm", "md", "lg", "xl"]}>
               <DialogActions>
-                <Button color="primary" onClick={onClose}>Cancel</Button>
-                <Button color="primary" variant="outlined" onClick={this.handleResetClick}>Reset</Button>
-                <Button color="primary" variant="contained" onClick={onClose}>OK</Button>
+                <Button color="primary" onClick={onClose}>
+                  Cancel
+                </Button>
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  onClick={this.handleResetClick}
+                >
+                  Reset
+                </Button>
+                <Button color="primary" variant="contained" onClick={onClose}>
+                  OK
+                </Button>
               </DialogActions>
             </Hidden>
           </React.Fragment>
-        }
+        )}
 
-        {(selectedTab !== 1 || !hasDeviatedFromDefaultSettings) &&
-          <Hidden only={['sm', 'md', 'lg', 'xl']}>
+        {(selectedTab !== 1 || !hasDeviatedFromDefaultSettings) && (
+          <Hidden only={["sm", "md", "lg", "xl"]}>
             <DialogActions>
-              <Button color="primary" onClick={onClose}>Cancel</Button>
-              <Button color="primary" variant="contained" onClick={onClose}>OK</Button>
+              <Button color="primary" onClick={onClose}>
+                Cancel
+              </Button>
+              <Button color="primary" variant="contained" onClick={onClose}>
+                OK
+              </Button>
             </DialogActions>
           </Hidden>
-        }
+        )}
       </Dialog>
     );
   }
