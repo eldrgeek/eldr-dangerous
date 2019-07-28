@@ -4,6 +4,28 @@ import Home from "./Home";
 import Register from "./Register";
 import Topics from "./Topics";
 import Header from "./Header";
+
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/performance";
+
+try {
+  firebase.initializeApp(settings.credentials.firebase);
+} catch (err) {
+  // we skip the "already exists" message which is
+  // not an actual error when we're hot-reloading
+  if (!/already exists/.test(err.message)) {
+    console.error("Firebase initialization error", err.stack);
+  }
+}
+
+const auth = firebase.auth();
+
+// eslint-disable-next-line no-unused-vars
+const performance = firebase.performance();
+
+auth.useDeviceLanguage();
+
 function App() {
   return (
     <Router>
