@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import clsx from "clsx";
 
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -15,15 +17,16 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 import PersonIcon from "@material-ui/icons/Person";
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   signUpButton: {
     marginRight: theme.spacing(1)
   }
-});
+}));
 
 const Bar = props => {
   const [menu, setMenu] = React.useState({ anchorEl: null });
-
+  const classes = useStyles();
+  const theme = useTheme();
   const openMenu = event => {
     const anchorEl = event.currentTarget;
     setMenu({ anchorEl });
@@ -42,8 +45,6 @@ const Bar = props => {
     closeMenu();
     props.onSignOutClick();
   };
-
-  const { classes } = props;
 
   // Properties
   const { title, isPerformingAuthAction, isSignedIn, user } = props;
@@ -130,4 +131,4 @@ Bar.propTypes = {
   onSignOutClick: PropTypes.func.isRequired
 };
 
-export default withStyles(styles)(Bar);
+export default Bar;
