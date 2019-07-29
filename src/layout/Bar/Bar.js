@@ -216,8 +216,8 @@ const Bar = props => {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
+          {["Inboxer", "Starred", "Send email", "Drafts"].map((text, index) => (
+            <ListItem button key={text} onClick={handleDrawerClose}>
               {/* <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon> */}
