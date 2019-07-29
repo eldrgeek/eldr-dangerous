@@ -21,125 +21,103 @@ const styles = theme => ({
   }
 });
 
-class Bar extends Component {
-  constructor(props) {
-    super(props);
+const Bar = props => {
+  const [menu, setMenu] = React.useState({ anchorEl: null });
 
-    this.state = {
-      menu: {
-        anchorEl: null
-      }
-    };
-  }
-
-  openMenu = event => {
+  const openMenu = event => {
     const anchorEl = event.currentTarget;
-
-    this.setState({
-      menu: {
-        anchorEl
-      }
-    });
+    setMenu({ anchorEl });
   };
 
-  closeMenu = () => {
-    this.setState({
-      menu: {
-        anchorEl: null
-      }
-    });
+  const closeMenu = () => {
+    setMenu({ anchorEl: null });
   };
 
-  handleSettingsClick = () => {
-    this.closeMenu();
-    this.props.onSettingsClick();
+  const handleSettingsClick = () => {
+    closeMenu();
+    props.onSettingsClick();
   };
 
-  handleSignOutClick = () => {
-    this.closeMenu();
-    this.props.onSignOutClick();
+  const handleSignOutClick = () => {
+    closeMenu();
+    props.onSignOutClick();
   };
 
-  render() {
-    // Styling
-    const { classes } = this.props;
+  const { classes } = props;
 
-    // Properties
-    const { title, isPerformingAuthAction, isSignedIn, user } = this.props;
+  // Properties
+  const { title, isPerformingAuthAction, isSignedIn, user } = props;
 
-    // Events
-    const { onSignUpClick, onSignInClick } = this.props;
+  // Events
+  const { onSignUpClick, onSignInClick } = props;
 
-    const { menu } = this.state;
+  return (
+    <AppBar color="primary" position="static">
+      <Toolbar variant="regular">
+        <Typography style={{ flexGrow: 1 }} color="inherit" variant="h6">
+          {title}
+        </Typography>
 
-    return (
-      <AppBar color="primary" position="static">
-        <Toolbar variant="regular">
-          <Typography style={{ flexGrow: 1 }} color="inherit" variant="h6">
-            {title}
-          </Typography>
+        {isSignedIn && (
+          <React.Fragment>
+            <IconButton
+              color="inherit"
+              disabled={isPerformingAuthAction}
+              onClick={openMenu}
+            >
+              {user.photoURL ? (
+                <Avatar alt="Avatar" src={user.photoURL} />
+              ) : (
+                <PersonIcon />
+              )}
+            </IconButton>
 
-          {isSignedIn && (
-            <React.Fragment>
-              <IconButton
-                color="inherit"
+            <Menu
+              anchorEl={menu.anchorEl}
+              open={Boolean(menu.anchorEl)}
+              onClose={closeMenu}
+            >
+              <MenuItem
                 disabled={isPerformingAuthAction}
-                onClick={this.openMenu}
+                onClick={handleSettingsClick}
               >
-                {user.photoURL ? (
-                  <Avatar alt="Avatar" src={user.photoURL} />
-                ) : (
-                  <PersonIcon />
-                )}
-              </IconButton>
-
-              <Menu
-                anchorEl={menu.anchorEl}
-                open={Boolean(menu.anchorEl)}
-                onClose={this.closeMenu}
-              >
-                <MenuItem
-                  disabled={isPerformingAuthAction}
-                  onClick={this.handleSettingsClick}
-                >
-                  Settings
-                </MenuItem>
-                <MenuItem
-                  disabled={isPerformingAuthAction}
-                  onClick={this.handleSignOutClick}
-                >
-                  Sign out
-                </MenuItem>
-              </Menu>
-            </React.Fragment>
-          )}
-
-          {!isSignedIn && (
-            <React.Fragment>
-              <Button
-                className={classes.signUpButton}
-                color="secondary"
+                Settings
+              </MenuItem>
+              <MenuItem
                 disabled={isPerformingAuthAction}
-                variant="contained"
-                onClick={onSignUpClick}
+                onClick={handleSignOutClick}
               >
-                Sign Up
-              </Button>
-              <Button
-                color="secondary"
-                disabled={isPerformingAuthAction}
-                variant="contained"
-                onClick={onSignInClick}
-              >
-                Sign In
-              </Button>
-            </React.Fragment>
-          )}
-        </Toolbar>
-      </AppBar>
-    );
-  }
-}
+                Sign out
+              </MenuItem>
+            </Menu>
+          </React.Fragment>
+        )}
+
+        {!isSignedIn && (
+          <React.Fragment>
+            <Button
+              className={classes.signUpButton}
+              color="secondary"
+              disabled={isPerformingAuthAction}
+              variant="contained"
+              onClick={onSignUpClick}
+            >
+              Sign Up
+            </Button>
+            <Button
+              color="secondary"
+              disabled={isPerformingAuthAction}
+              variant="contained"
+              onClick={onSignInClick}
+            >
+              Sign In
+            </Button>
+          </React.Fragment>
+        )}
+      </Toolbar>
+    </AppBar>
+  );
+};
 
 Bar.propTypes = {
   classes: PropTypes.object.isRequired,

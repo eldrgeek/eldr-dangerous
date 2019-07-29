@@ -9,6 +9,7 @@
     "@material-ui/icons": "4.2.1",
     "clsx": "1.0.4",
     "firebase": "6.3.3",
+    "markdown-to-jsx": "6.10.2",
     "mdi-material-ui": "6.2.0",
     "moment": "2.24.0",
     "react": "16.8.6",
