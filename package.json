@@ -7,11 +7,19 @@
   "dependencies": {
     "@material-ui/core": "4.2.1",
     "@material-ui/icons": "4.2.1",
+    "bootstrap": "4.3.1",
+    "bootstrap-slider": "10.6.2",
     "clsx": "1.0.4",
     "firebase": "6.3.3",
+    "icheck": "1.0.2",
+    "jQuery": "1.7.4",
+    "jquery": "3.4.1",
+    "jquery-bar-rating": "1.2.2",
+    "jquery-ui": "latest",
     "markdown-to-jsx": "6.10.2",
     "mdi-material-ui": "6.2.0",
     "moment": "2.24.0",
+    "nouislider": "14.0.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-markdown": "4.1.0",
@@ -19,6 +27,10 @@
     "react-scripts": "3.0.1",
     "react-swipeable-views": "0.13.3",
     "reading-time": "1.2.0",
+    "select2": "4.0.8",
+    "survey-creator": "latest",
+    "survey-react": "1.1.2",
+    "surveyjs-widgets": "1.1.1",
     "validate.js": "0.13.1"
   },
   "devDependencies": {
@@ -30,10 +42,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
 }
