@@ -30,7 +30,7 @@ import LaunchScreen from "../layout/LaunchScreen/LaunchScreen";
 import Bar from "../layout/Bar/Bar";
 
 // import HomeContent from "./HeroContent";
-import HomeContent from "./HeroContent";
+import HomeContent from "../HeroContent/HeroContent";
 
 import NotFoundContent from "./Stepper";
 
