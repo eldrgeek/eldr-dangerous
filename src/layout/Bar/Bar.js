@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import PropTypes from "prop-types";
 
@@ -242,7 +242,7 @@ const Bar = props => {
 };
 
 Bar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  // classes: PropTypes.object.isRequired,
 
   title: PropTypes.string.isRequired,
   isPerformingAuthAction: PropTypes.bool.isRequired,

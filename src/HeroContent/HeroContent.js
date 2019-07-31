@@ -4,9 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Stepper from "../Components/Stepper";
 import HeroButtons from "./HeroButtons";
-import Subtext from "./Subtext";
-import MarkdownPages from "./MarkdownPages";
-import DemoSurvey from "../Surveys/DemoSurvey";
+// import Subtext from "./Subtext";
+// import MarkdownPages from "./MarkdownPages";
+// import DemoSurvey from "../Surveys/DemoSurvey";
 // import CardPages from "../Cards/CardPage";
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -54,7 +54,7 @@ const HeroContent = () => {
             // gutterBottom
           >
             Dangerous Devices
-            <DemoSurvey />
+            {/* <DemoSurvey /> */}
           </Typography>
           {/* <Subtext title="This is the title" subtext="this is the subtext" /> */}
           {/* <MarkdownPages /> */}

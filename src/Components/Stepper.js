@@ -55,7 +55,7 @@ export default function VerticalLinearStepper() {
           const title = step.substr(0, lineLength);
           const rest = step.substr(lineLength + 1);
           return (
-            <Step key={step.title}>
+            <Step key={title}>
               <StepLabel
                 classes={{
                   root: classes.root, // class name, e.g. `classes-nesting-root-x`
