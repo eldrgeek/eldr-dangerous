@@ -31,7 +31,8 @@
     "survey-creator": "latest",
     "survey-react": "1.1.2",
     "surveyjs-widgets": "1.1.1",
-    "validate.js": "0.13.1"
+    "validate.js": "0.13.1",
+    "velocity-animate": "1.5.2"
   },
   "devDependencies": {
     "typescript": "3.3.3"
@@ -42,5 +43,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
