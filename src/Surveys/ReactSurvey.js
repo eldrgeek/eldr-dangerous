@@ -1,8 +1,52 @@
 import React from "react";
 import * as Survey from "survey-react";
 import myCss from "survey-react/survey.css";
+// import { VelocityComponent } from "velocity-react";
 
+// import SurveyCreator from "./SurveyCreator";
+// import logo from "./logo.svg";
+import "./DemoSurvey.css";
+import "bootstrap/dist/css/bootstrap.css";
+
+import "jquery-ui/themes/base/all.css";
+import "nouislider/distribute/nouislider.css";
+import "./select2.css";
+import "bootstrap-slider/dist/css/bootstrap-slider.css";
+
+import "jquery-bar-rating/dist/themes/css-stars.css";
+import "jQuery";
+// import SurveyCreator from "./SurveyCreator";
+// import logo from "./logo.svg";
+import "./DemoSurvey.css";
+import "bootstrap/dist/css/bootstrap.css";
+
+import "jquery-ui/themes/base/all.css";
+import "nouislider/distribute/nouislider.css";
+import "./select2.css";
+import "bootstrap-slider/dist/css/bootstrap-slider.css";
+
+import "jquery-bar-rating/dist/themes/css-stars.css";
+import "jQuery";
+import * as widgets from "surveyjs-widgets";
+import "icheck";
+import "icheck/skins/square/blue.css";
+import $ from "jquery";
+window["$"] = window["jQuery"] = $;
+require("icheck");
 Survey.StylesManager.applyTheme("default");
+
+widgets.icheck(Survey, $);
+widgets.select2(Survey, $);
+widgets.inputmask(Survey);
+widgets.jquerybarrating(Survey, $);
+widgets.jqueryuidatepicker(Survey, $);
+widgets.nouislider(Survey);
+widgets.select2tagbox(Survey, $);
+widgets.signaturepad(Survey);
+widgets.sortablejs(Survey);
+widgets.ckeditor(Survey);
+widgets.autocomplete(Survey, $);
+widgets.bootstrapslider(Survey);
 
 let makePage = element => {
   return {
@@ -267,25 +311,20 @@ survey.onComplete.add(function(result) {
 //     $(element).velocity(animitionType, {duration: duration});
 // }
 
-// var doAnimantion = true;
-// survey
-//     .onCurrentPageChanging
-//     .add(function (sender, options) {
-//         if (!doAnimantion)
-//             return;
-//         options.allowChanging = false;
-//         setTimeout(function () {
-//             doAnimantion = false;
-//             sender.currentPage = options.newCurrentPage;
-//             doAnimantion = true;
-//         }, 500);
-//         animate("slideUp", 500);
-//     });
-// survey
-//     .onCurrentPageChanged
-//     .add(function (sender) {
-//         animate("slideDown", 500);
-//     });
+var doAnimantion = true;
+survey.onCurrentPageChanging.add(function(sender, options) {
+  if (!doAnimantion) return;
+  options.allowChanging = false;
+  setTimeout(function() {
+    doAnimantion = false;
+    sender.currentPage = options.newCurrentPage;
+    doAnimantion = true;
+  }, 500);
+  // animate("slideUp", 500);
+});
+survey.onCurrentPageChanged.add(function(sender) {
+  // animate("slideDown", 500);
+});
 // survey
 //     .onCompleting
 //     .add(function (sender, options) {
@@ -302,5 +341,21 @@ survey.onComplete.add(function(result) {
 // animate("slideDown", 1000);;
 
 export default () => {
-  return <Survey.Survey model={survey} css={myCss} />;
+  // let [animate, setAnimatation] = React.useState(true)
+  // setTimeout( ()=> setAnimatation(!animate,2000))
+  return (
+    // <VelocityComponent
+    // duration={500}
+    // animation={animate ? {
+    //   width: 500,
+    //   opacity: 1,
+    // } : {
+    //   width: 0,
+    //   opacity: 0,
+    // }}
+
+    // >
+    <Survey.Survey model={survey} css={myCss} />
+    // </VelocityComponent>
+  );
 };
